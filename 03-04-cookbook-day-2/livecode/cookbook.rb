@@ -34,7 +34,7 @@ class Cookbook
     # Iterate on each row of the csv and for each row do something
     CSV.foreach(@csv_file) do |row|
       # Build recipe instance
-      recipe = Recipe.new(row[0], row[1])
+      recipe = Recipe.new(row[0], row[1], row[2], row[3])
       # Push them into the cookbook recipes array
       @recipes << recipe
     end
@@ -48,7 +48,7 @@ class Cookbook
         # CSV SHOULD NOT TAKE INSTANCES
         # We must individually separate the name and description from the instances
         # Then store them in array format into each row of the CSV
-        csv_row << [recipe.name, recipe.description]
+        csv_row << [recipe.name, recipe.description, recipe.rating, recipe.prep_time]
       end
     end
   end
