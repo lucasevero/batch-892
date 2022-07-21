@@ -7,7 +7,11 @@ class GardensController < ApplicationController
   end
 
   # GET /gardens/1
-  def show; end
+  def show
+    # @garden = Garden.find(params[:id]) # already done by set_garden
+    @plants = @garden.plants
+    @plant = Plant.new
+  end
 
   # GET /gardens/new
   def new
